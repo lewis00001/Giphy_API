@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+}
+
+/* fontAwesome icons
+solid star:  <span class="fas fa-star"></span>
+hollow star: <span class="far fa-star"></span>
+X - remove:  <span class="fas fa-times-circle"></span>
+*/
+.selected-star {
+    color: goldenrod;
+    position: relative;
+}
+
+.unselected-star {
+    color: gray;
+    position: relative;
+}
+
+.remove {
+    position: relative;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    min-width: 100px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -50px;
+    opacity: 0;
+    transition: opacity 0.8s;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 200;
+}
+
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/*****************************************************/
+
+.content {
+    padding: 150px;
+}
