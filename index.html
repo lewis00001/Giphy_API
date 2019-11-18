@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Giphy In'a Jiffy</title>
+    <title>JiffyGif</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/png" href="assets/images/favicon/favicon-16x16.png">
     <link href="https://fonts.googleapis.com/css?family=Ultra&display=swap" rel="stylesheet">
@@ -15,19 +15,39 @@
 
 <body>
 
-    <header>Header</header>
-
-    <nav class="navMain">
-        <div class="searched"></div>
-        <div class="favorites"></div>
-    </nav>
+    <header>
+        <div class="header-content">
+            <div class="h-letter" id="letter-1">J</div>
+            <div class="h-letter" id="letter-2">i</div>
+            <div class="h-letter" id="letter-3">f</div>
+            <div class="h-letter" id="letter-4">f</div>
+            <div class="h-letter" id="letter-5">y</div>
+            <div class="h-letter" id="letter-6">G</div>
+            <div class="h-letter" id="letter-7">i</div>
+            <div class="h-letter" id="letter-8">f</div>
+        </div>
+    </header>
 
     <div class="main">
         <div class="content">
 
-            <span class="fas fa-star selected-star tooltip"><p class="tooltip-text">Favorite</p></span>
-            <span class="far fa-star unselected-star tooltip"><p class="tooltip-text">Add to Favorites</p></span>
-            <span class="fas fa-times-circle tooltip remove"><p class="tooltip-text">Remove from List</p></span>
+            <!-- <span class="fas fa-star selected-star tooltip">
+                <p class="tooltip-text">Favorite</p>
+            </span>
+            <span class="far fa-star unselected-star tooltip">
+                <p class="tooltip-text">Add to Favorites</p>
+            </span>
+            <span class="fas fa-times-circle tooltip remove">
+                <p class="tooltip-text">Remove from List</p>
+            </span> -->
+
+            <div class="search">
+                <input type="text" class="search-box" placeholder="search">
+                <span class="fas fa-search search-icon"></span>
+            </div>
+            <div class="favorites y">Favorites<span class="fas fa-plus-circle f-right"></span></div>
+            <div class="searches y">Searches<span class="fas fa-plus-circle f-right"></span></div>
+            <div class="gif-display"></div>
 
         </div>
     </div>
