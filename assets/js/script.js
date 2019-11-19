@@ -4,7 +4,7 @@ $(document).ready(function () {
         // gPhrase is the word/phrase that gets added to the query for search resutls
         // wordFit is what gets displayed on the button - just for looks ;)
         s: [{
-                gPhrase: "ToriAmosIsAwesome",
+                gPhrase: "Tori Amos Is Awesome",
                 wordFit: function () {
                     let tName = truncateButtonText(this.gPhrase);
                     return tName;
@@ -12,7 +12,7 @@ $(document).ready(function () {
                 isFav: false
             },
             {
-                gPhrase: "MrTISsuperAwesome",
+                gPhrase: "Mr T is super Awesome",
                 wordFit: function () {
                     let tName = truncateButtonText(this.gPhrase);
                     return tName;
@@ -28,7 +28,7 @@ $(document).ready(function () {
                 isFav: false
             },
             {
-                gPhrase: "crash",
+                gPhrase: "c r a s h a n d a g a i n",
                 wordFit: function () {
                     let tName = truncateButtonText(this.gPhrase);
                     return tName;
@@ -65,7 +65,7 @@ $(document).ready(function () {
     // ensures the search input will look good on the buttons ;)
     function truncateButtonText(phrase) {
         let trunc = phrase;
-        let sizeLimit = 12;
+        let sizeLimit = 11;
         if (phrase.length > sizeLimit) {
             trunc = phrase.slice(0, sizeLimit);
             return trunc + "<span class='ellipsis'>...</span>";
