@@ -31,35 +31,63 @@
     <div class="main">
         <div class="content">
 
-            <!-- <span class="fas fa-star selected-star tooltip">
-                <p class="tooltip-text">Favorite</p>
-            </span>
-            <span class="far fa-star unselected-star tooltip">
-                <p class="tooltip-text">Add to Favorites</p>
-            </span>
-            <span class="fas fa-times-circle tooltip remove">
-                <p class="tooltip-text">Remove from List</p>
-            </span> -->
-
             <!-- search box -->
             <div class="search">
                 <input type="text" class="search-box" placeholder="search">
                 <span class="fas fa-search search-icon"></span>
             </div>
+
             <!-- spacer div -->
             <div class="spacer"></div>
+
+            <!-- search settings box -->
+            <div class="settings">Search Settings
+                <span id="settings" class="fas fa-plus-circle f-right y"></span>
+            </div>
+            <div class="search-settings hide">
+                <div class="rating setting-box">Limit Rating to:
+                    <hr>
+                    <input type="radio" name="rating" value="y">
+                    <span class="radioText">Y</span>
+                    <input type="radio" name="rating" value="g">
+                    <span class="radioText">G</span>
+                    <input type="radio" name="rating" value="pg">
+                    <span class="radioText">PG</span>
+                    <input type="radio" name="rating" value="pg-13">
+                    <span class="radioText">PG-13</span>
+                    <input type="radio" name="rating" value="r">
+                    <span class="radioText">R</span>
+                </div>
+                <div class="numResults setting-box">Number of Results:
+                    <hr>
+                    <input type="radio" name="numResults" value="5">
+                    <span class="radioText">5</span>
+                    <input type="radio" name="numResults" value="10">
+                    <span class="radioText">10</span>
+                    <input type="radio" name="numResults" value="15">
+                    <span class="radioText">15</span>
+                    <input type="radio" name="numResults" value="20">
+                    <span class="radioText">20</span>
+                    <input type="radio" name="numResults" value="25">
+                    <span class="radioText">25</span>
+                </div>
+            </div>
+
             <!-- favorites box -->
             <div class="favorites">Favorites
                 <span id="fav" class="fas fa-plus-circle f-right y"></span>
             </div>
             <div class="favorites-output hide"></div>
+
             <!-- searches box -->
             <div class="searches">Searches
                 <span id="search" class="fas fa-plus-circle f-right y"></span>
             </div>
             <div class="searches-output hide"></div>
+
             <!-- spacer div -->
             <div class="spacer"></div>
+
             <!-- gif display area -->
             <div class="gif-display"></div>
 

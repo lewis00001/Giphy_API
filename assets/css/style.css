@@ -44,7 +44,8 @@ footer {
 }
 
 .favorites, 
-.searches {
+.searches,
+.settings {
     min-height: 30px;
     width: 100%;
     background-color: #999;
@@ -59,6 +60,10 @@ footer {
     float: right;
 }
 
+.f-left {
+    float: left;
+}
+
 .y {
     color: #333;
 }
@@ -70,10 +75,17 @@ footer {
 }
 
 .favorites-output,
-.searches-output {
+.searches-output,
+.search-settings {
     min-height: 60px;
     background-color: #ccc;
     border-bottom: 1px solid #000;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search-settings {
+    justify-content: space-evenly;
 }
 
 .spacer {
@@ -86,12 +98,43 @@ footer {
     min-height: 260px;
 }
 
+.gif-margin {
+    margin: 5px;
+}
+
 .unhide {
     display: flex;
 }
 
 .hide {
     display: none;
+}
+
+.button-gif-search {
+    display: flex;
+    justify-content: space-between;
+    min-width: 165px;
+    max-width: 165px;
+    height: 25px;
+    margin: 4px;
+    padding: 3px;
+    background-color: #bbb;
+    border: 1px solid #333;
+    border-radius: 5px;
+    box-shadow: 0 0 3px gray;
+}
+
+.setting-box {
+    margin: 10px;
+}
+
+.button-text {
+    cursor: pointer;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.ellipsis {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 /* fontAwesome icons
@@ -103,12 +146,11 @@ plus:        <span class="fas fa-plus-circle"></span>
 minus:       <span class="fas fa-minus-circle"></span>
 */
 .selected-star {
-    color: goldenrod;
+    color: #333;
     position: relative;
 }
 
 .unselected-star {
-    color: gray;
     position: relative;
 }
 
@@ -122,7 +164,7 @@ minus:       <span class="fas fa-minus-circle"></span>
     cursor: pointer;
 }
 
-.tooltip-text {
+.tooltip-text-left {
     visibility: hidden;
     min-width: 100px;
     background-color: #555;
@@ -132,27 +174,38 @@ minus:       <span class="fas fa-minus-circle"></span>
     padding: 5px 5px;
     position: absolute;
     z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -50px;
+    top: -5px;
+    right: 105%;
     opacity: 0;
     transition: opacity 0.8s;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: 200;
+    font-weight: 100;
 }
 
-.tooltip-text::after {
-    content: "";
+.tooltip-text-right {
+    visibility: hidden;
+    min-width: 100px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 5px;
     position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
+    z-index: 1;
+    top: -5px;
+    left: 105%;
+    opacity: 0;
+    transition: opacity 0.8s;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 100;
 }
 
-.tooltip:hover .tooltip-text {
+.tooltip:hover .tooltip-text-left {
+    visibility: visible;
+    opacity: 1;
+}
+
+.tooltip:hover .tooltip-text-right {
     visibility: visible;
     opacity: 1;
 }
