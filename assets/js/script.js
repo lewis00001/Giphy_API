@@ -113,13 +113,16 @@ $(document).ready(function () {
         this.gPhrase = searchEntered;
         this.wordFit = function () {
             let tName = truncateButtonText(this.gPhrase);
-            return tName;};
+            return tName;
+        };
         this.isFav = false;
     };
 
     // add search as a new obj to the gSearch.s array 
     $(document).on("click", "#search-button", function () {
         let userSearch = $(".search-box").val().trim();
+        // produce search results
+        runApiCall(userSearch);
         let uSearch = new SearchedItem(userSearch);
         // add new search to gSearch.s array
         gSearch.s.push(uSearch);
@@ -181,28 +184,31 @@ $(document).ready(function () {
 
     // listen for which button was clicked
     $(document).on("click", ".button-text", function () {
-
         // query vars
         let query = $(this).attr("value"); // search key word(s)
-        let numR = 10; // number of search results wanted
-        let rate = ""; // content rating
 
+        runApiCall(query);
+    });
+
+    // runs the api query and outputs the images
+    function runApiCall(_query) {
+        // default values
+        let _numR = 10; // number of search results wanted
+        let _rate = ""; // content rating
         // gather search setting data
         let ratingVal = $("input[type='radio'][name='rating']:checked").val();
         if (ratingVal !== undefined) {
-            rate = ratingVal;
+            _rate = ratingVal;
         }
         let numResultsVal = parseInt($("input[type='radio'][name='numResults']:checked").val());
         if (numResultsVal > 0) {
-            numR = numResultsVal;
+            _numR = numResultsVal;
         }
-
         // Giphy API call //
         var queryURL = "https://api.giphy.com/v1/gifs/search?&q=" +
-            query + "&api_key=UWUhUuxLMhfVzD4ejhAOsyERRnPpl10l&limit=" +
-            numR + "&rating=" +
-            rate + "";
-        console.log(queryURL);
+            _query + "&api_key=UWUhUuxLMhfVzD4ejhAOsyERRnPpl10l&limit=" +
+            _numR + "&rating=" +
+            _rate + "";
 
         $.ajax({
             url: queryURL,
@@ -217,9 +223,6 @@ $(document).ready(function () {
                 gifDiv.append(img);
                 $(".gif-display").prepend(gifDiv);
             }
-
         });
-
-    });
-
+    }
 });
