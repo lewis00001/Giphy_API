@@ -228,13 +228,30 @@ $(document).ready(function () {
         }).then(function (response) {
             // add images to the page
             let rArray = response.data;
+            console.log(response.data[0]);
+            console.log(queryURL);
             for (let i = 0; i < rArray.length; i++) {
                 var gifDiv = $("<div>").addClass("f-left gif-margin gif-div");
-                var img = $("<img>");
-                img.attr("src", rArray[i].images.fixed_height.url);
+                var img = $("<img class='toggle-gif'>");
+                img.attr("src", rArray[i].images.fixed_height_still.url);
+                img.attr("data-still", rArray[i].images.fixed_height_still.url);
+                img.attr("data-animate", rArray[i].images.fixed_height.url);
+                img.attr("data-state", "still");
                 gifDiv.append(img);
                 $(".gif-display").prepend(gifDiv);
             }
         });
     }
+
+    // listens for clicks on gifs to toggle animation or still
+    $(document).on("click", ".toggle-gif", function () {
+        var state = $(this).attr("data-state");
+        if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }
+    });
 });

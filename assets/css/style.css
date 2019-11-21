@@ -148,6 +148,10 @@ footer {
     object-fit: contain;
 }
 
+.toggle-gif {
+    cursor: pointer;
+}
+
 /* fontAwesome icons
 solid star:  <span class="fas fa-star"></span>
 hollow star: <span class="far fa-star"></span>
@@ -230,6 +234,8 @@ minus:       <span class="fas fa-minus-circle"></span>
     flex-direction: row;
     align-items: center;
     height: 25px;
+    max-width: 400px;
+    margin: auto;
 }
 
 .search-box {
