@@ -75,7 +75,6 @@ $(document).ready(function () {
         }
     }
 
-
     // add search to favorites
     $(document).on("click", ".unselected-star", function (e) {
         let sWord = $(this).siblings().attr("value");
@@ -86,6 +85,7 @@ $(document).ready(function () {
         }
         displayButtons();
     });
+
     // remove search from favorites
     $(document).on("click", ".selected-star", function (e) {
         let sWord = $(this).siblings().attr("value");
@@ -96,10 +96,10 @@ $(document).ready(function () {
         }
         displayButtons();
     });
+
     // (X) remove from page 
-    $(document).on("click", ".fa-times-circle", function (e) {
+    $(document).on("click", ".remove", function (e) {
         let sWord = $(this).prev().attr("value");
-        console.log(sWord);
         for (let i = 0; i < gSearch.s.length; i++) {
             if (gSearch.s[i].gPhrase === sWord) {
                 gSearch.s.splice(i, 1);
@@ -108,7 +108,25 @@ $(document).ready(function () {
         displayButtons();
     });
 
+    // new search item obj constructor of awesomeness
+    function SearchedItem(searchEntered) {
+        this.gPhrase = searchEntered;
+        this.wordFit = function () {
+            let tName = truncateButtonText(this.gPhrase);
+            return tName;};
+        this.isFav = false;
+    };
 
+    // add search as a new obj to the gSearch.s array 
+    $(document).on("click", "#search-button", function () {
+        let userSearch = $(".search-box").val().trim();
+        let uSearch = new SearchedItem(userSearch);
+        // add new search to gSearch.s array
+        gSearch.s.push(uSearch);
+        // reset search box text to placeholder
+        $(".search-box").val("");
+        displayButtons();
+    });
 
     // click open handling for the favorites tab
     $("#fav").on("click", function (e) {
@@ -166,7 +184,6 @@ $(document).ready(function () {
 
         // query vars
         let query = $(this).attr("value"); // search key word(s)
-        console.log("value is: " + query);
         let numR = 10; // number of search results wanted
         let rate = ""; // content rating
 
