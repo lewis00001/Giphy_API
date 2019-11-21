@@ -4,7 +4,7 @@ $(document).ready(function () {
         // gPhrase is the word/phrase that gets added to the query for search resutls
         // wordFit is what gets displayed on the button - just for looks ;)
         s: [{
-                gPhrase: "Jennifer",
+                gPhrase: "mice",
                 wordFit: function () {
                     let tName = truncateButtonText(this.gPhrase);
                     return tName;
@@ -12,7 +12,7 @@ $(document).ready(function () {
                 isFav: false
             },
             {
-                gPhrase: "Alexis",
+                gPhrase: "sunset",
                 wordFit: function () {
                     let tName = truncateButtonText(this.gPhrase);
                     return tName;
@@ -20,7 +20,7 @@ $(document).ready(function () {
                 isFav: false
             },
             {
-                gPhrase: "Jesse",
+                gPhrase: "winter",
                 wordFit: function () {
                     let tName = truncateButtonText(this.gPhrase);
                     return tName;
@@ -28,7 +28,7 @@ $(document).ready(function () {
                 isFav: false
             },
             {
-                gPhrase: "Tonya",
+                gPhrase: "dance",
                 wordFit: function () {
                     let tName = truncateButtonText(this.gPhrase);
                     return tName;
@@ -36,7 +36,7 @@ $(document).ready(function () {
                 isFav: false
             },
             {
-                gPhrase: "Amy",
+                gPhrase: "space",
                 wordFit: function () {
                     let tName = truncateButtonText(this.gPhrase);
                     return tName;
@@ -44,7 +44,7 @@ $(document).ready(function () {
                 isFav: true
             },
             {
-                gPhrase: "Vanessa",
+                gPhrase: "loops",
                 wordFit: function () {
                     let tName = truncateButtonText(this.gPhrase);
                     return tName;
@@ -52,7 +52,7 @@ $(document).ready(function () {
                 isFav: true
             },
             {
-                gPhrase: "Lisa",
+                gPhrase: "food",
                 wordFit: function () {
                     let tName = truncateButtonText(this.gPhrase);
                     return tName;
