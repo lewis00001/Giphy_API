@@ -118,8 +118,8 @@ $(document).ready(function () {
         this.isFav = false;
     };
 
-    // add search as a new obj to the gSearch.s array 
-    $(document).on("click", "#search-button", function () {
+    // add search as a new obj to the gSearch.s array
+    function processSearch() {
         let userSearch = $(".search-box").val().trim();
         // produce search results
         runApiCall(userSearch);
@@ -129,6 +129,19 @@ $(document).ready(function () {
         // reset search box text to placeholder
         $(".search-box").val("");
         displayButtons();
+    }
+
+    // listen for enterkey - run search if text is entered
+    $(document).on("keydown", function (event) {
+        let primed = $(".search-box").val().trim();
+        if (event.keyCode === 13 && primed !== "") {
+            processSearch();
+        }
+    });
+
+    // listen for the search button click
+    $(document).on("click", "#search-button", function () {
+        processSearch();
     });
 
     // click open handling for the favorites tab
@@ -186,7 +199,6 @@ $(document).ready(function () {
     $(document).on("click", ".button-text", function () {
         // query vars
         let query = $(this).attr("value"); // search key word(s)
-
         runApiCall(query);
     });
 
