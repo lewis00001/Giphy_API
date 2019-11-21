@@ -228,16 +228,20 @@ $(document).ready(function () {
         }).then(function (response) {
             // add images to the page
             let rArray = response.data;
-            console.log(response.data[0]);
-            console.log(queryURL);
             for (let i = 0; i < rArray.length; i++) {
-                var gifDiv = $("<div>").addClass("f-left gif-margin gif-div");
-                var img = $("<img class='toggle-gif'>");
+                let gifDiv = $("<div>").addClass("f-left gif-margin gif-div");
+                let img = $("<img class='toggle-gif'>");
                 img.attr("src", rArray[i].images.fixed_height_still.url);
                 img.attr("data-still", rArray[i].images.fixed_height_still.url);
                 img.attr("data-animate", rArray[i].images.fixed_height.url);
                 img.attr("data-state", "still");
                 gifDiv.append(img);
+                let gInfo = $("<div>").addClass("gif-info");
+                gInfo.html(
+                    "<p>Rating: " + rArray[i].rating + "</p>" +
+                    "<p>Title: " + rArray[i].title + "</p>"
+                );
+                gifDiv.append(gInfo);
                 $(".gif-display").prepend(gifDiv);
             }
         });
@@ -245,7 +249,7 @@ $(document).ready(function () {
 
     // listens for clicks on gifs to toggle animation or still
     $(document).on("click", ".toggle-gif", function () {
-        var state = $(this).attr("data-state");
+        let state = $(this).attr("data-state");
         if (state === "still") {
             $(this).attr("src", $(this).attr("data-animate"));
             $(this).attr("data-state", "animate");

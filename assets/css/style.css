@@ -16,11 +16,14 @@ img {
     width: 100%;
 }
 
+p {
+    font-size: 12px;
+}
+
 footer {
     width: 100%;
     height: 30px;
     text-align: center;
-    margin: auto;
     padding-top: 6px;
     position: fixed;
     bottom: 0px;
@@ -98,12 +101,23 @@ footer {
     background-color: #999;
 }
 
+.footer-space {
+    min-height: 40px;
+    width: 100%;
+}
+
 .gif-display {
     min-height: 260px;
 }
 
+.gif-info {
+    width: 100%;
+    padding: 2px;
+}
+
 .gif-margin {
     margin: 5px;
+    background-color: #eee;
 }
 
 .unhide {
@@ -144,7 +158,6 @@ footer {
 /* prevents gifs from being wider than the mobile display mode */
 .gif-div {
     max-width: 370px;
-    max-height: 200px;
     object-fit: contain;
 }
 
