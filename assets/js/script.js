@@ -96,6 +96,17 @@ $(document).ready(function () {
         }
         displayButtons();
     });
+    // (X) remove from page 
+    $(document).on("click", ".fa-times-circle", function (e) {
+        let sWord = $(this).prev().attr("value");
+        console.log(sWord);
+        for (let i = 0; i < gSearch.s.length; i++) {
+            if (gSearch.s[i].gPhrase === sWord) {
+                gSearch.s.splice(i, 1);
+            }
+        }
+        displayButtons();
+    });
 
 
 
