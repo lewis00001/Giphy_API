@@ -4,7 +4,7 @@ $(document).ready(function () {
         // gPhrase is the word/phrase that gets added to the query for search resutls
         // wordFit is what gets displayed on the button - just for looks ;)
         s: [{
-                gPhrase: "Tori Amos Is Awesome",
+                gPhrase: "Jennifer",
                 wordFit: function () {
                     let tName = truncateButtonText(this.gPhrase);
                     return tName;
@@ -12,7 +12,7 @@ $(document).ready(function () {
                 isFav: false
             },
             {
-                gPhrase: "Mr T is super Awesome",
+                gPhrase: "Alexis",
                 wordFit: function () {
                     let tName = truncateButtonText(this.gPhrase);
                     return tName;
@@ -20,7 +20,7 @@ $(document).ready(function () {
                 isFav: false
             },
             {
-                gPhrase: "pizza cat",
+                gPhrase: "Jesse",
                 wordFit: function () {
                     let tName = truncateButtonText(this.gPhrase);
                     return tName;
@@ -28,7 +28,7 @@ $(document).ready(function () {
                 isFav: false
             },
             {
-                gPhrase: "c r a s h a n d a g a i n",
+                gPhrase: "Tonya",
                 wordFit: function () {
                     let tName = truncateButtonText(this.gPhrase);
                     return tName;
@@ -36,7 +36,7 @@ $(document).ready(function () {
                 isFav: false
             },
             {
-                gPhrase: "tool",
+                gPhrase: "Amy",
                 wordFit: function () {
                     let tName = truncateButtonText(this.gPhrase);
                     return tName;
@@ -44,7 +44,7 @@ $(document).ready(function () {
                 isFav: true
             },
             {
-                gPhrase: "oopsIdidItAgain",
+                gPhrase: "Vanessa",
                 wordFit: function () {
                     let tName = truncateButtonText(this.gPhrase);
                     return tName;
@@ -52,7 +52,7 @@ $(document).ready(function () {
                 isFav: true
             },
             {
-                gPhrase: "avengers",
+                gPhrase: "Lisa",
                 wordFit: function () {
                     let tName = truncateButtonText(this.gPhrase);
                     return tName;
@@ -75,6 +75,30 @@ $(document).ready(function () {
         }
     }
 
+
+    // add search to favorites
+    $(document).on("click", ".unselected-star", function (e) {
+        let sWord = $(this).siblings().attr("value");
+        for (let i = 0; i < gSearch.s.length; i++) {
+            if (gSearch.s[i].gPhrase === sWord) {
+                gSearch.s[i].isFav = true;
+            }
+        }
+        displayButtons();
+    });
+    // remove search from favorites
+    $(document).on("click", ".selected-star", function (e) {
+        let sWord = $(this).siblings().attr("value");
+        for (let i = 0; i < gSearch.s.length; i++) {
+            if (gSearch.s[i].gPhrase === sWord) {
+                gSearch.s[i].isFav = false;
+            }
+        }
+        displayButtons();
+    });
+
+
+
     // click open handling for the favorites tab
     $("#fav").on("click", function (e) {
         $(this).toggleClass("fa-minus-circle fa-plus-circle");
@@ -94,12 +118,14 @@ $(document).ready(function () {
     // loops through gSearch.s and outputs the array
     function displayButtons() {
         $(".searches-output").html("");
+        $(".favorites-output").html("");
+        $(".searches-output").html("");
         for (let i = 0; i < gSearch.s.length; i++) {
             if (gSearch.s[i].isFav === true) {
                 $(".favorites-output").append(
                     "<div class='button-gif-search'>" +
                     "<span class='fas fa-star selected-star y tooltip'>" +
-                    "<p class='tooltip-text-right'>is Favorite</p>" +
+                    "<p class='tooltip-text-right'>Remove Favorite</p>" +
                     "</span>" +
                     "<div class='button-text' value='" + gSearch.s[i].gPhrase + "'>" +
                     gSearch.s[i].wordFit() + "</div>" +
@@ -157,7 +183,7 @@ $(document).ready(function () {
             // add images to the page
             let rArray = response.data;
             for (let i = 0; i < rArray.length; i++) {
-                var gifDiv = $("<div>").addClass("f-left gif-margin");
+                var gifDiv = $("<div>").addClass("f-left gif-margin gif-div");
                 var img = $("<img>");
                 img.attr("src", rArray[i].images.fixed_height.url);
                 gifDiv.append(img);

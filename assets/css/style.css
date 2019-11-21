@@ -12,6 +12,10 @@ header {
     background-color: #999;
 }
 
+img {
+    width: 100%;
+}
+
 footer {
     width: 100%;
     height: 30px;
@@ -137,6 +141,13 @@ footer {
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+/* prevents gifs from being wider than the mobile display mode */
+.gif-div {
+    max-width: 370px;
+    max-height: 200px;
+    object-fit: contain;
+}
+
 /* fontAwesome icons
 solid star:  <span class="fas fa-star"></span>
 hollow star: <span class="far fa-star"></span>
@@ -180,6 +191,7 @@ minus:       <span class="fas fa-minus-circle"></span>
     transition: opacity 0.8s;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 100;
+    font-size: 13px;
 }
 
 .tooltip-text-right {
@@ -198,6 +210,7 @@ minus:       <span class="fas fa-minus-circle"></span>
     transition: opacity 0.8s;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: 100;
+    font-size: 13px;
 }
 
 .tooltip:hover .tooltip-text-left {
