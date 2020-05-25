@@ -1,2 +1,8 @@
 # Giphy_API
-The page uses the GIPHY API to display images and data that populate as per the user choice. And it does other stuff. 
+A basic gif search API page. Allows users to select number of results, and ratings. Searches are automatically added to the searches section. Searches can be added and removed from the favorites section. Results are returned with the gif name and rating information.
+
+
+
+## Screenshots
+![iu image](assets/images/screenshot1.PNG)
+![iu image](assets/images/screenshot2.PNG)
